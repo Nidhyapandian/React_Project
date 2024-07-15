@@ -16,7 +16,7 @@ pipeline {
                 script {
                     def BRANCH_NAME = env.GIT_BRANCH.split('/').last()
                     echo "Current branch is: ${BRANCH_NAME}"
-                  sh 'docker-compose down'               
+                  sh 'docker-compose down'             
                  if ( "${BRANCH_NAME}" == "dev" ) {
                       sh 'chmod +x build.sh'
                       sh './build.sh'
