@@ -22,14 +22,14 @@ pipeline {
                  if ( "${BRANCH_NAME}" == "dev" ) {
                       sh 'chmod +x build.sh'
                       sh './build.sh'
-                      echo "haiiii dev"            
+                      echo "Changes in dev branch"            
                       sh 'docker tag nginximage smart24/dev'
                       sh 'docker push smart24/dev'
                       echo "Docker image pushed successfully."
                  } else if ( "${BRANCH_NAME}" == "main" ) {
                       sh 'chmod +x build.sh'
                       sh './build.sh'
-                      echo "mainnnnnnn"
+                      echo "Changes in main branch"
                       sh 'docker tag nginximage smart24/prod'
                       sh 'docker push smart24/prod'
                       echo "Docker image pushed successfully."
