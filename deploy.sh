@@ -2,8 +2,6 @@
 # GET CURRENT BRANCH:
 BRANCH_NAME=$(env.GIT_BRANCH.split('/').last())
 BRANCH_NAME=$(git rev-parse --abbrev -ref HEAD)
-
-
 if ["$BRANCH_NAME"="dev"]; then
     sh 'chmod +x build.sh'
     sh './build.sh'
