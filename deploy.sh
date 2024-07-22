@@ -1,6 +1,7 @@
 #! /bin/bash
 # GET CURRENT BRANCH:
 BRANCH_NAME=$(env.GIT_BRANCH.split('/').last())
+sh 'docker-compose down'  
 if ["$BRANCH_NAME"="dev"]; then
     sh 'chmod +x build.sh'
     sh './build.sh'
