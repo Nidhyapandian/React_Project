@@ -12,8 +12,7 @@ pipeline {
           
           withCredentials([usernamePassword(credentialsId: "${DOCKER_REGISTRY_CREDS}", passwordVariable: 'DOCKER_PASSWORD', usernameVariable: 'DOCKER_USERNAME')]) {
           sh "echo \$DOCKER_PASSWORD | docker login -u \$DOCKER_USERNAME --password-stdin docker.io"
-          
-                script {
+               script {
                     def BRANCH_NAME = env.GIT_BRANCH.split('/').last()
                     echo "Current branch is: ${BRANCH_NAME}"
                     sh 'docker-compose down'      
